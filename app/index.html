@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Vakinha May & Davez</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Container pai que força uma linha única e esconde o que sobra */
+        .scroll-container {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        /* O elemento que desliza */
+        .animate-scroll {
+            display: inline-block;
+            white-space: nowrap;
+            /* Velocidade ajustada: 80s é bem lento e suave */
+            animation: scroll 80s linear infinite;
+        }
+
+        /* O seu hover de volta para pausar a leitura */
+        .animate-scroll:hover {
+            animation-play-state: paused;
+            cursor: pointer;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0%);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 min-h-screen flex flex-col">
+
+    <header class="p-4 bg-white shadow-sm">
+        <nav class="flex justify-center gap-6">
+            <a href="https://www.instagram.com/kethelin_mayara/" target="_blank" class="text-pink-600 font-semibold">Instagram May</a>
+            <a href="https://www.instagram.com/terres_davez/" target="_blank" class="text-pink-600 font-semibold">Instagram Davez</a>
+        </nav>
+    </header>
+
+    <main class="flex-grow flex flex-col md:flex-row items-center justify-center p-8 gap-12 max-w-5xl mx-auto">
+        <!-- Lado Esquerdo -->
+        <div class="w-full md:w-1/2 flex flex-col items-center">
+            <img src="../app/img/qr code.png" alt="QR Code Vakinha" class="w-full max-w-xs rounded-lg shadow-xl">
+
+            <!-- Botão de copiar -->
+            <button id="btn-copiar"
+                class="mt-6 bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-6 rounded-full shadow-lg transition duration-300">
+                Copiar Chave Pix
+            </button>
+            <p id="msg-copiado" class="text-green-600 mt-2 hidden text-sm font-semibold">Chave copiada!</p>
+        </div>
+
+        <!-- Lado Direito -->
+        <div class="w-full md:w-1/2 text-center md:text-left">
+            <h1 class="text-4xl font-bold text-gray-800 mb-4">Vakinha Casamento</h1>
+            <div class="bg-white p-6 rounded-2xl shadow-md">
+                <p class="text-gray-600">Total Arrecadado:</p>
+                <span id="total-arrecadado" class="text-5xl font-extrabold text-green-600">Carregando...</span>
+            </div>
+        </div>
+    </main>
+
+    <!-- Rolo Infinito de Doadores -->
+    <div class="w-full bg-pink-100 py-3 mb-8 overflow-hidden">
+        <div class="scroll-container">
+            <!-- A classe animate-scroll agora tem o hover ativo novamente -->
+            <div id="lista-doadores" class="animate-scroll text-pink-800 font-medium">
+                <!-- JS vai injetar o conteúdo aqui -->
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center p-6 text-sm text-gray-500">
+        <p>Obrigado por contribuir! Feito com amor pelo <a href="https://github.com/Davez99" class="underline">Davez.</a> </p>
+    </footer>
+
+    <script src="../app/script.js"></script>
+</body>
+
+</html>
