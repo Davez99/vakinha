@@ -45,7 +45,7 @@ function updateTotalDonations() {
 
 // Função para copiar a chave Pix
 document.getElementById('btn-copiar').addEventListener('click', () => {
-    const chavePix = 'SUA_CHAVE_PIX_AQUI'; // <--- INSIRA SUA CHAVE AQUI
+    const chavePix = '00020126580014br.gov.bcb.pix01367882bc88-c6a2-402a-b90c-6464d6110d1d5204000053039865802BR5920Davi Terres Da Silva6009Sao Paulo62290525REC69E1469DEC838776782894630478DB'; // <--- INSIRA SUA CHAVE AQUI
 
     // API nativa para copiar para a área de transferência
     navigator.clipboard.writeText(chavePix).then(() => {
